@@ -12,141 +12,200 @@
 ?>
 
 <style type="text/css">
-    * {
-        font-family: Arial, sans;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
+    
+    *, *:before, *:after {
+    box-sizing: border-box;
+    }
+
+    html {
+    overflow-y: scroll;
+    }
+
+    body {
+    background: #c1bdba;
+    font-family: 'Titillium Web', sans-serif;
+    }
+
+    a {
+    text-decoration: none;
+    color: #1ab188;
+    transition: .5s ease;
+    }
+    a:hover {
+    color: #179b77;
+    }
+
+    .form {
+    background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    }
+
+    .tab-group {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    }
+    .tab-group:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    .tab-group li a {
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    background: rgba(160, 179, 176, 0.25);
+    color: #a0b3b0;
+    font-size: 20px;
+    float: left;
+    width: 20%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+    }
+    .tab-group li a:hover {
+    background: #B5E7EB;/* background: #179b77; */
+    color: #ffffff;
+    }
+    .tab-group .active a {
+    background:#096CA7;/* background: #1ab188; */
+    color: #ffffff;
+    }
+
+    .tab-content > div:last-child {
+    display: none;
     }
 
     h1 {
-        margin: 1em 0;
-        text-align: center;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    margin: 0 0 40px;
     }
 
-    #container {
-        padding-top:5em;
-        padding-left:5em;
-        margin:top 40em;
-        float: left;
-        width: 85%;  /* Ancho del contenedor */
+    label {
+    position: absolute;
+    -webkit-transform: translateY(6px);
+            transform: translateY(6px);
+    left: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.25s ease;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    font-size: 18px;
+    }
+    label .req {
+    margin: 2px;
+    color: #1ab188;
     }
 
-    #container input {
-        height: 2.5em;
-        visibility: hidden;
+    label.active {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    left: 2px;
+    font-size: 14px;
+    }
+    label.active .req {
+    opacity: 0;
     }
 
-    #container label {
-        background: #f9f9f9;  /* Fondo de las pestañas */
-        border-radius: .25em .25em 0 0;
-        color: #888;  /* Color del texto de las pestañas */
-        cursor: pointer;
-        display: block;
-        float: left;
-        font-size: 1em;  /* Tamaño del texto de las pestañas */
-        height: 2.5em;
-        line-height: 2.5em;
-        margin-right: .25em;
-        margin-top: .30em;
-        padding: 0 1.5em;
-        text-align: center;
+    label.highlight {
+    color: #ffffff;
     }
 
-    #container input:hover + label {
-        background: #ddd;  /* Fondo de las pestañas al pasar el cursor por encima */
-        color: #666;  /* Color del texto de las pestañas al pasar el cursor por encima */
+    input, textarea {
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #a0b3b0;
+    color: #ffffff;
+    border-radius: 0;
+    transition: border-color .25s ease, box-shadow .25s ease;
+    }
+    input:focus, textarea:focus {
+    outline: 0;
+    border-color: #1ab188;
     }
 
-    #container input:checked + label {
-        background: #f1f1f1;  /* Fondo de las pestañas al presionar */
-        color: #444; /* Color de las pestañas al presionar */
-        position: relative;
-        z-index: 6;
-        /*
-        -webkit-transition: .1s;
-        -moz-transition: .1s;
-        -o-transition: .1s;
-        -ms-transition: .1s;
-        */
+    textarea {
+    border: 2px solid #a0b3b0;
+    resize: vertical;
     }
 
-    #content {
-        background: #f1f1f1;  /* Fondo del contenido */
-        border-radius: 0 .25em .25em .25em;
-        min-height: 20em;  /* Alto del contenido */
-        position: relative;
-        width: 100%;
-        z-index: 5;
+    .field-wrap {
+    font-size: 12px;
+    position: relative;
+    margin-bottom: 30px;
     }
 
-    #content div {
-        opacity: 0;
-        padding: 1.5em;
-        position: absolute;
-        z-index: -100;
-        /*
-        transition: all linear 0.1s;
-        */
+    .top-row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    .top-row > div {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+    }
+    .top-row > div:last-child {
+    margin: 0;
     }
 
-    #content-1 p {
-        clear: both;
-        margin-bottom: 1em;
+    .button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #1ab188;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
     }
-    #content-1 p.left img {
-        float: left;
-        margin-right: 1em;
-    }
-    #content-1 p.last {
-        margin-bottom: 0;
-    }
-
-    #content-2 p {
-        float: left;
-        width: 48.5%;
-    }
-    #content-2 p.column-right {
-        margin-left: 3%;
-    }
-    #content-2 p img {
-        display: block;
-        margin: 0 auto 1em auto;
-    }
-    #content-3 p,
-    #content-3 ul {
-        margin-bottom: 1em;
-    }
-    #content-3 ul {
-        margin-left: 2em;
+    .button:hover, .button:focus {
+    background: #179b77;
     }
 
-    #container input#tab-1:checked ~ #content #content-1,
-    #container input#tab-2:checked ~ #content #content-2,
-    #container input#tab-3:checked ~ #content #content-3 {
-        opacity: 1;
-        z-index: 100;
+    .button-block {
+    display: block;
+    width: 100%;
     }
 
-    input.visible {
-    visibility: visible !important;
+    .forgot {
+    margin-top: -20px;
+    text-align: right;
     }
 
     #image {
-        padding-top: 5px;
-        float-left:2px;
-        width: 100px;
-        height: 120px;
-        margin: 5px;
+    padding-top: 5px;
+    float-left:2px;
+    width: 100px;
+    height: 120px;
+    margin: 5px;
     }
+
     #details {
-        padding-top: 25px;
+        padding-top: 2px;
         float-left:20px;
-        width: 250px;
-        height: 120px;
+        width: 50px;
+        height: 100px;
         margin: 1px;
     }
+
+
+
 </style>
 
 <section class="content-wrapper">
@@ -163,13 +222,11 @@
                             <div class="box-body">
                                 <div class="row">
                                     <div class="row">
-                                    <div class="col-md-1"></div>
+                                        <div class="col-md-1">
+                                            
+                                        </div>
                                         <div class="col-md-2">
-                                       
-                                        
                                             <img src="employeeComman/upload/1.jpg" id="image" alt="User Image">
-                                       
-                                        
                                         </div>
                                         <div class="col-md-6"id="details">
                                         
@@ -198,53 +255,132 @@
                                     </div>
                                     
                                     <div class="row">
-                                   <div id="container">
-        <!--Pestaña 1 activa por defecto-->
-        <input id="tab-1" type="radio" name="tab-group" checked="checked" />
-        <label for="tab-1">Genenral Info</label>
-        <!--Pestaña 2 inactiva por defecto-->
-        <input id="tab-2" type="radio" name="tab-group" />
-        <label for="tab-2">leave</label>
-        <!--Pestaña 3 inactiva por defecto-->
-        <input id="tab-3" type="radio" name="tab-group" />
-        <label for="tab-3">Attendence</label>
-         <input id="tab-4" type="radio" name="tab-group" />
-        <label for="tab-4">Emergency Info</label>
-         <input id="tab-5" type="radio" name="tab-group" />
-        <label for="tab-5">Edit</label>
-        <!--Contenido a mostrar/ocultar-->
-        <div id="content">
-            <!--Contenido de la Pestaña 1-->
-            <div id="content-1">
-                <p class="column-left"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
-            </div>
-            <!--Contenido de la Pestaña 2-->
-            <div id="content-2">
-                <p class="column-left"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, est, nisi enim voluptates dicta quibusdam recusandae eveniet provident non at nostrum nesciunt laudantium omnis aliquam debitis magni expedita cumque tempore.</p>
-                <p class="column-right"><img src="http://ximg.es/200x150" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, molestiae, officia repellendus quasi cumque dolor eius deserunt possimus aliquid neque nam assumenda veniam soluta enim commodi aperiam reprehenderit quia incidunt.</p>
-            </div>
-            <!--Contenido de la Pestaña 3-->
-            <div id="content-3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, aperiam, enim odit placeat minus ab vero molestiae ad fugit maiores eaque saepe debitis assumenda ut ipsam eius sit repellendus dolore.</p>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, in magni illo dolore dicta vero.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, minus, aspernatur voluptatem doloribus labore modi.</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, exercitationem quia id accusamus beatae sunt? Dolorum mollitia sint debitis delectus.</li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, accusantium, provident ab quo sed blanditiis perspiciatis distinctio aut voluptatibus cum odio quaerat iure vel dolorum fugit explicabo suscipit tenetur. Sed!</p>
-            </div>
-        </div>
-    </div>
-
-                    
+                                        <div class="form">
+                                            <ul class="tab-group">
+                                                <li class="tab active"><a href="#signup">General Info</a></li>
+                                                <li class="tab"><a href="#login">Leave</a></li>
+                                                <li class="tab"><a href="#signup">Attendance</a></li>
+                                                <li class="tab"><a href="#login">Emergency Ifo</a></li>
+                                                <li class="tab"><a href="#login">Edit</a></li>
+                                            </ul>
+                                            
+                                            <div class="tab-content">
+                                                <div id="signup">   
+                                                    <form action="/" method="post">
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Name:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Address:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Email:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['email']?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Telephone:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['phone']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Name:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                
+                                                <div id="login">   
+                                                    <form action="/" method="post">
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Name:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Address:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Email:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Telephone:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Name:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                
+                                            </div><!-- tab-content -->
+                                        </div>
                                     </div>
                 
                                 </div>
                             </div><!-- /.box-body -->
-
-                            <div class="box-footer">
-
-                            </div>
                         </form>
                     </div>
 
@@ -256,3 +392,53 @@
 </section>
 
 <?php include_once("employeeComman/footer.php")?>
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script>
+
+    $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+    
+    var $this = $(this),
+        label = $this.prev('label');
+
+        if (e.type === 'keyup') {
+                if ($this.val() === '') {
+            label.removeClass('active highlight');
+            } else {
+            label.addClass('active highlight');
+            }
+        } else if (e.type === 'blur') {
+            if( $this.val() === '' ) {
+                label.removeClass('active highlight'); 
+                } else {
+                label.removeClass('highlight');   
+                }   
+        } else if (e.type === 'focus') {
+        
+        if( $this.val() === '' ) {
+                label.removeClass('highlight'); 
+                } 
+        else if( $this.val() !== '' ) {
+                label.addClass('highlight');
+                }
+        }
+
+    });
+
+    $('.tab a').on('click', function (e) {
+    
+    e.preventDefault();
+    
+    $(this).parent().addClass('active');
+    $(this).parent().siblings().removeClass('active');
+    
+    target = $(this).attr('href');
+
+    $('.tab-content > div').not(target).hide();
+    
+    $(target).fadeIn(600);
+    
+    });
+</script>

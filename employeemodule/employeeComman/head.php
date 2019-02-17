@@ -17,5 +17,9 @@
             page. However, you can choose any other skin. Make sure you
             apply the skin class to the body tag so the changes take effect. -->
       <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+
+
+      <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
       
 </head>
