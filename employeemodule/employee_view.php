@@ -9,6 +9,9 @@
     $sql = "SELECT * FROM employee WHERE email='$current_user'";
     $row = $conn->query($sql)->fetch_array();
 
+    $sql2 = "SELECT * FROM emergencydetails WHERE id=1";
+    $row2 = $conn->query($sql2)->fetch_array();
+
 ?>
 
 <style type="text/css">
@@ -283,14 +286,15 @@
                                     <div class="row">
                                         <div class="form">
                                             <ul class="tab-group">
-                                                <li class="tab active"><a href="#signup">General Info</a></li>
-                                                <li class="tab"><a href="#login">Leave</a></li>
+                                                <li class="tab active"><a href="#general">General Info</a></li>
+                                                <li class="tab"><a href="#leave">Leave</a></li>
                                                 <li class="tab"><a href="#signup">Attendance</a></li>
                                                 <li class="tab"><a href="#login">Emergency Ifo</a></li>
                                             </ul>
                                             
                                             <div class="tab-content">
-                                                <div id="signup">   
+                                                
+                                                <div id="general">   
                                                     <form action="/" method="post">
                                                         <div class="field-wrap">
                                                             <div class="row">
@@ -345,7 +349,29 @@
                                                     </form>
                                                 </div>
                                                 
-                                                <div id="login">   
+                                                <div id="leave">   
+                                                    <form action="/" method="post">
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th>Company</th>
+                                                                    <th>Contact</th>
+                                                                    <th>Country</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Alfreds Futterkiste</td>
+                                                                    <td>Maria Anders</td>
+                                                                    <td>Germany</td>
+                                                                </tr>
+                                                                
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                                <!-- <div id="signup">   
                                                     <form action="/" method="post">
                                                         <div class="field-wrap">
                                                             <div class="row">
@@ -389,7 +415,62 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                </div>
+                                                </div> -->
+
+                                                <!-- <div id="login">   
+                                                    <form action="/" method="post">
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Contact Person:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label><?php echo $row2['cntperson'];?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Address:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label><?php echo $row2['address'];?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Contact Number:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label><?php echo $row2['contact'];?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Blood Group:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label><?php echo $row2['blood'];?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Allergies:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label><?php echo $row2['allergic'];?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div> -->
                                                 
                                             </div><!-- tab-content -->
                                         </div>
@@ -399,10 +480,9 @@
                             </div><!-- /.box-body -->
                         </form>
                     </div>
-
-            </div>
-        </div>
-        <div>
+                </div>
+                </div>
+            <div>
         </div>
     </section>
 </section>

@@ -20,7 +20,7 @@
         </div>
 
         <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
+        <!-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
@@ -28,7 +28,7 @@
                 </button>
             </span>
             </div>
-        </form>
+        </form> -->
         <!-- /.search form -->
 
         <ul class="sidebar-menu">
@@ -36,7 +36,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="employee_view.php"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
-            <li><a href="emergency.php"><i class="fa fa-bullhorn"></i> <span>Emergncy</span></a></li>
+            <!-- <li><a href="emergency.php"><i class="fa fa-bullhorn"></i> <span>Emergncy</span></a></li> -->
 
             <li><a href="leave_form.php"><i class="fa fa-edit"></i> <span>Leave Form</span></a></li>
 
