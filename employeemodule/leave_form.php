@@ -25,72 +25,78 @@
     }
 ?>
 
-
-//
 <section class="content-wrapper">
-    <section class="content-header" >
-        <!-- <div class="row"> -->
-            <!-- <div class="col-md-12"> -->
-
-                <!--                leave details-->
-                <div class="box box-primary">
-                    <!-- /.box-header -->
-                    <!-- form start action="employeeComman/query.php" -->
-                    <form method="POST" action="leave_form.php">
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class=row>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>From:</label>
-                                                <input name = 'startdate' style="width:200px" type="date" class="form-control" id="startdate" placeholder=" " required>
-                                            </div>
-                                        </div> 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>To:</label>
-                                                <input name = 'enddate' style="width:200px" type="date" class="form-control" id="enddate" placeholder="" required>
-                                            </div>    
-                                        </div>
-                                    </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>From:</label>
-                                                        <input  name = 'starttime' type="time" value="08:00"  min="8:00 AM" max="05:00 PM" class="form-control" style="width:200px"id="starttime" required>
-                                                        <!-- <input name = 'starttime' style="width:200px" type="time" class="form-control" id="starttime"  required> -->
-                                                    </div> 
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>To:</label>
-                                                        <input name = 'endtime' type="time" value="05:00"  class="form-control" style="width:200px" id="enddate" required>
-                                                        <!-- <input name = 'endtime'max="05:00 PM" style="width:200px" type="time" class="form-control" id="enddate" placeholder="" required> -->
-                                                    </div> 
-                                                </div>
-                                            </div>
+    <section class="content-header">
+        <div class="row">
+            <div class="col-md-12">
+                    
+                            
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Leave Details</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name:</label>
+                                    <input   class="form-control" id="teacherFNameTxt" placeholder="Name">
                                 </div>
-                                <div class="row-md-6">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Reason:</label>
-                                            <textarea name='reason' style="width:450px" class="form-control" id="messageTxt"  placeholder="" required></textarea>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Start Date:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
                                         </div>
+                                        <input type="date" class="form-control pull-right" id="date"/>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <button style="width:150px" name="leavBTN" type="post" class="btn btn-primary">Submit</button>
-                                        </div>
-                                    </div>  
                                 </div>
-                            </div>
-                        </div>
-                        <div class="box-footer">
-                        </div>
-                    </form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Start Time:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        <input name = 'endtime' type="time" value="05:00"  class="form-control"  id="enddate" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">End Date:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="date" class="form-control pull-right" id="date"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">End Time:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        <input name = 'endtime' type="time" value="05:00"  class="form-control"  id="enddate" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Reason:</label>
+                                    <textarea name='reason'  class="form-control" id="messageTxt"  placeholder="" required></textarea>
+                                </div>
+                            </div>  
+                        </form>
+                    </div><!-- /.box -->
                 </div>
+            </div>
+        </div>
     </section>
 </section>
+
+
+
+
+
+<?php include_once("employeeComman/footer.php")?>
 
 

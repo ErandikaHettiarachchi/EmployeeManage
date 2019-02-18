@@ -62,7 +62,7 @@
     color: #a0b3b0;
     font-size: 20px;
     float: left;
-    width: 20%;
+    width: 25%;
     text-align: center;
     cursor: pointer;
     transition: .5s ease;
@@ -204,12 +204,30 @@
         margin: 1px;
     }
 
-    .table {
+    /* .table {
     font-size: 18px;
     position: relative;
     margin-bottom: 30px;
     margin: 2px;
     color: #1ab188;
+    } */
+
+    table {
+    font-family: arial, sans-serif;
+    font-size: 18px;
+    border-collapse: collapse;
+    color: #000000;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
     }
 
 
@@ -269,7 +287,6 @@
                                                 <li class="tab"><a href="#login">Leave</a></li>
                                                 <li class="tab"><a href="#signup">Attendance</a></li>
                                                 <li class="tab"><a href="#login">Emergency Ifo</a></li>
-                                                <li class="tab"><a href="#login">Edit</a></li>
                                             </ul>
                                             
                                             <div class="tab-content">
