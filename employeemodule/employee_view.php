@@ -9,8 +9,11 @@
     $sql = "SELECT * FROM employee WHERE email='$current_user'";
     $row = $conn->query($sql)->fetch_array();
 
-    $sql2 = "SELECT * FROM emergencydetails WHERE id=1";
+    $sql2 = "SELECT * FROM employee_leave WHERE id=16";
     $row2 = $conn->query($sql2)->fetch_array();
+
+    $sql3 = "SELECT * FROM emergencydetails WHERE id=1";
+    $row3 = $conn->query($sql3)->fetch_array();
 
 ?>
 
@@ -65,7 +68,7 @@
     color: #a0b3b0;
     font-size: 20px;
     float: left;
-    width: 25%;
+    width: 33.3%;
     text-align: center;
     cursor: pointer;
     transition: .5s ease;
@@ -254,10 +257,10 @@
                                         <div class="col-md-1">
                                             
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <img src="employeeComman/upload/1.jpg" id="image" alt="User Image">
-                                        </div>
-                                        <div class="col-md-6"id="details">
+                                        </div> -->
+                                        <!-- <div class="col-md-6"id="details">
                                         
                                                 <div class="">
                                                         <label id="fnamelabel">
@@ -280,7 +283,7 @@
                                                         </label>
                                                 </div>
                                         
-                                        </div>
+                                        </div> -->
                                     </div>
                                     
                                     <div class="row">
@@ -288,8 +291,7 @@
                                             <ul class="tab-group">
                                                 <li class="tab active"><a href="#general">General Info</a></li>
                                                 <li class="tab"><a href="#leave">Leave</a></li>
-                                                <li class="tab"><a href="#signup">Attendance</a></li>
-                                                <li class="tab"><a href="#login">Emergency Ifo</a></li>
+                                                <li class="tab"><a href="#emergency">Emergency Ifo</a></li>
                                             </ul>
                                             
                                             <div class="tab-content">
@@ -355,69 +357,24 @@
                                                             <div class="row">
                                                             <table class="table">
                                                                 <tr>
-                                                                    <th>Company</th>
-                                                                    <th>Contact</th>
-                                                                    <th>Country</th>
+                                                                    <th>Start</th>
+                                                                    <th>End</th>
+                                                                    <th>Reason</th>
+                                                                    <th>Approved</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Alfreds Futterkiste</td>
-                                                                    <td>Maria Anders</td>
-                                                                    <td>Germany</td>
-                                                                </tr>
-                                                                
+                                                                    <td><?php  echo $row2['startdate']?></td>
+                                                                    <td><?php  echo $row2['enddate']?></td>
+                                                                    <td><?php  echo $row2['reason']?></td>
+                                                                    <td><?php  echo $row2['approved']?></td>
+                                                                </tr>                                                                  
                                                                 </table>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
 
-                                                <!-- <div id="signup">   
-                                                    <form action="/" method="post">
-                                                        <div class="field-wrap">
-                                                            <div class="row">
-                                                            <table class="table">
-                                                                <tr>
-                                                                    <th>Company</th>
-                                                                    <th>Contact</th>
-                                                                    <th>Country</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Alfreds Futterkiste</td>
-                                                                    <td>Maria Anders</td>
-                                                                    <td>Germany</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Centro comercial Moctezuma</td>
-                                                                    <td>Francisco Chang</td>
-                                                                    <td>Mexico</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Ernst Handel</td>
-                                                                    <td>Roland Mendel</td>
-                                                                    <td>Austria</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Island Trading</td>
-                                                                    <td>Helen Bennett</td>
-                                                                    <td>UK</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Laughing Bacchus Winecellars</td>
-                                                                    <td>Yoshi Tannamuri</td>
-                                                                    <td>Canada</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Magazzini Alimentari Riuniti</td>
-                                                                    <td>Giovanni Rovelli</td>
-                                                                    <td>Italy</td>
-                                                                </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div> -->
-
-                                                <!-- <div id="login">   
+                                                <div id="emergency">   
                                                     <form action="/" method="post">
                                                         <div class="field-wrap">
                                                             <div class="row">
@@ -425,7 +382,7 @@
                                                                     <label>Contact Person:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label><?php echo $row2['cntperson'];?></label>
+                                                                    <label><?php echo $row3['cntperson'];?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -435,7 +392,7 @@
                                                                     <label>Address:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label><?php echo $row2['address'];?></label>
+                                                                    <label><?php echo $row3['address'];?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -445,7 +402,7 @@
                                                                     <label>Contact Number:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label><?php echo $row2['contact'];?></label>
+                                                                    <label><?php echo $row3['contact'];?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -455,7 +412,7 @@
                                                                     <label>Blood Group:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label><?php echo $row2['blood'];?></label>
+                                                                    <label><?php echo $row3['blood'];?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -465,12 +422,12 @@
                                                                     <label>Allergies:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label><?php echo $row2['allergic'];?></label>
+                                                                    <label><?php echo $row3['allergic'];?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </form>
-                                                </div> -->
+                                                </div>
                                                 
                                             </div><!-- tab-content -->
                                         </div>
