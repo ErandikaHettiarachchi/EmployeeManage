@@ -3,9 +3,6 @@
 <?php include_once("employeeComman/slider.php")?>
 <?php include_once("employeeComman/script.php")?>
 <?php include("employeeComman/connection.php") ?>
-<!---->
-
-
 
 <section class="content-wrapper">
     <section class="content-header">

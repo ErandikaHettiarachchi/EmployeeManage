@@ -65,7 +65,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>To:</label>
-                                                        <input name = 'endtime' type="time" value="05:00"  class="form-control" style="width:200px" id="enddate" required>
+                                                            
                                                         <!-- <input name = 'endtime'max="05:00 PM" style="width:200px" type="time" class="form-control" id="enddate" placeholder="" required> -->
                                                     </div> 
                                                 </div>
