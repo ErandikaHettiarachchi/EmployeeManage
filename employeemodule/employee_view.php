@@ -9,8 +9,8 @@
     $sql = "SELECT * FROM employee WHERE email='$current_user'";
     $row = $conn->query($sql)->fetch_array();
 
-    $sql2 = "SELECT * FROM employee_leave WHERE id=16";
-    $row2 = $conn->query($sql2)->fetch_array();
+    $sql2 = "SELECT * FROM employee_leave WHERE id=1";
+    //$row2 = $conn->query($sql2)->fetch_array();
 
     $sql3 = "SELECT * FROM emergencydetails WHERE id=1";
     $row3 = $conn->query($sql3)->fetch_array();
@@ -362,12 +362,19 @@
                                                                     <th>Reason</th>
                                                                     <th>Approved</th>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td><?php  echo $row2['startdate']?></td>
-                                                                    <td><?php  echo $row2['enddate']?></td>
-                                                                    <td><?php  echo $row2['reason']?></td>
-                                                                    <td><?php  echo $row2['approved']?></td>
-                                                                </tr>                                                                  
+                                                                <?php
+                                                                if ($result = $conn->query($sql2)) {
+                                                                    while ($row2 = $result->fetch_assoc()) {?>
+                                                                    <!-- $row2 = $conn->query($sql2)->fetch_array(); -->
+                                                                        <tr>
+                                                                            <td><?php  echo $row2['startdate']?></td>
+                                                                            <td><?php  echo $row2['enddate']?></td>
+                                                                            <td><?php  echo $row2['reason']?></td>
+                                                                            <td><?php  echo $row2['approved']?></td>
+                                                                        </tr>
+                                                              <?php }
+                                                                }?>
+                                                                                                                                  
                                                                 </table>
                                                             </div>
                                                         </div>

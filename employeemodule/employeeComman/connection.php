@@ -2,7 +2,7 @@
     $serverName = "localhost";
     $userName = "root";
     $password = "";
-    $db = "motorboss";
+    $db = "employeetst";
     $conn = new MySQLi($serverName,$userName,$password,$db);
 
     if ($conn->connect_error) {

@@ -42,7 +42,7 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name:</label>
-                                    <input   class="form-control" id="teacherFNameTxt" placeholder="Name">
+                                    <input   class="form-control" id="teacherFNameTxt" placeholder="Name" value="<?php  .$row['fname']." ".$row['lname'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Start Date:</label>
