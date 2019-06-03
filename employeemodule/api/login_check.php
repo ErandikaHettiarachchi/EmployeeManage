@@ -10,7 +10,7 @@
         $passowrd=$_POST['password']; //get user password by input
 
         //check user available with password in db
-        $sql = "Select * from user where email='$username' and password='$passowrd'";
+        $sql = "Select * from user where email='$username' and password=password('$passowrd')";
         
         //get result set from sql query
         $result = $conn->query($sql);

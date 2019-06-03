@@ -37,6 +37,7 @@
                         <img src="<?php echo 'employeeComman/upload/'. $_SESSION["id"].'.jpg'?>" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs"><?php echo $_SESSION["fname"]." ".$_SESSION["lname"] ?></span>
+                        <button>>Log out</button>
                         <!-- <button href="../../../admin/index.php" class="btn btn-default btn-flat">Sign out</button> -->
                     </a>
                     <ul class="dropdown-menu">

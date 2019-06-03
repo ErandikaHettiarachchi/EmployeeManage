@@ -8,7 +8,7 @@
 
     $current_user = $_SESSION["user"];
     $id = $_SESSION["id"];
-    $sql = "SELECT * FROM employee WHERE email='$current_user'";
+    $sql = "SELECT * FROM emergencydetails WHERE id='$id'";
     $row = $conn->query($sql)->fetch_array();
 
     // $sql2 = "SELECT * FROM employee_leave WHERE id='$id'";
@@ -33,7 +33,7 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Upload user image </h3>
+                        <h3 class="box-title">Update User Image </h3>
                     </div>
                     <form enctype="multipart/form-data"action="update.php" method="post">
                         <div class="box-body">
@@ -56,7 +56,7 @@
                     
                             <div class="row">
                                 <div class="box-header with-border">
-                                    <h2 class="box-title">Upload Emergency Informations</h2>
+                                    <h2 class="box-title">Update Emergency Informations</h2>
                                 </div>
                                 <div class="col-md-1"><br></div>
                                 <div class="col-md-4">
@@ -79,20 +79,19 @@
                                 <div ><!--hello-->
                                     <div class="col-md-7">
                                         <div  class="form-group">
-                                        <!-- <input type="text" placeholder="username" name="user"><br> -->
-                                            <input type="text" placeholder="username" name="cntperson">
+                                            <input type="text" placeholder="Name" name="cntperson" value= '<?php echo $row['cntperson'];?>'>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" placeholder="username" name = "address">
+                                            <input type="text" placeholder="Address" name = "address" value= '<?php echo $row['address'];?>'>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" placeholder="username" name="contact">
+                                            <input type="text" placeholder="07xxxxxxxx" name="contact" value= '<?php echo $row['contact'];?>'>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" placeholder="username" name ="blood">
+                                            <input type="text" placeholder="Blood group" name ="blood" value= '<?php echo $row['blood'];?>'>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" placeholder="username" name="allergic">
+                                            <input type="text" placeholder="Allergic" name="allergic" value= '<?php echo $row['allergic'];?>'>
                                         </div>
                                     </div>
 
@@ -146,7 +145,7 @@
             }
 
             if (empty($errors)) {
-                $didUpload = move_uploaded_file($fileTmpName, 'employeeComman/upload/'.$_SESSION["id"].".".$fileExtension);
+                $didUpload = move_uploaded_file($fileTmpName, 'employeeComman/upload/'.$_SESSION["id"].".jpg");
 
                 if ($didUpload) {
                     echo '<script language="javascript" >';

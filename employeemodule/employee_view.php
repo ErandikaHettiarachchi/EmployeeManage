@@ -38,33 +38,6 @@
                                         <div class="col-md-1">
                                             
                                         </div>
-                                        <!-- <div class="col-md-2">
-                                            <img src="employeeComman/upload/1.jpg" id="image" alt="User Image">
-                                        </div> -->
-                                        <!-- <div class="col-md-6"id="details">
-                                        
-                                                <div class="">
-                                                        <label id="fnamelabel">
-                                                            <?php  echo $row['fname']." ".$row['lname']; ?>
-                                                        </label>
-                                                </div>
-                                                <div class="">
-                                                        <label id="emaillabel">
-                                                            <?php  echo $row['email']?>
-                                                        </label>
-                                                </div>
-                                                <div class="">
-                                                        <label id="departmentlabel">
-                                                            <?php  echo $row['department']?>
-                                                        </label>
-                                                </div>
-                                                 <div class="">
-                                                        <label id="phonelabel">
-                                                            <?php  echo $row['phone']; ?>
-                                                        </label>
-                                                </div>
-                                        
-                                        </div> -->
                                     </div>
                                     
                                     <div class="row">
@@ -95,7 +68,7 @@
                                                                     <label>Address:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                    <label> <?php  echo $row['address']; ?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -122,15 +95,28 @@
                                                         <div class="field-wrap">
                                                             <div class="row">
                                                                 <div class="col-md-2">
-                                                                    <label>Name:</label>
+                                                                    <label>Hired Date:</label>
                                                                 </div>
                                                                 <div class="col-md-5">
-                                                                    <label> <?php  echo $row['fname']." ".$row['lname']; ?></label>
+                                                                    <label> <?php  echo $row['hireddate']; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field-wrap">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <label>Department:</label>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <label> <?php  echo $row['department']; ?></label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
+                                                
+                                            </div>
+                                            <div class="tab-content">
                                                 
                                                 <div id="leave">   
                                                     <form action="/" method="post">
@@ -152,6 +138,7 @@
                                                                             <td><?php  echo $row2['enddate']?></td>
                                                                             <td><?php  echo $row2['reason']?></td>
                                                                             <td><?php  echo $row2['approved']?></td>
+                                                                            
                                                                         </tr>
                                                               <?php }
                                                                 }?>
@@ -162,6 +149,8 @@
                                                     </form>
                                                 </div>
 
+                                            </div>
+                                            <div class="tab-content">
                                                 <div id="emergency">   
                                                     <form action="/" method="post">
                                                         <div class="field-wrap">
