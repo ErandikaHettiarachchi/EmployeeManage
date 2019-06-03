@@ -60,6 +60,9 @@
                                 <div class="form-group">
                                     <label><?php echo $row['allergic'];?></label>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <button><?php echo $row['submit'];?></button>
+                                </div> -->
                             </div>
 
                         </div>

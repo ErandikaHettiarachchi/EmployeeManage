@@ -34,23 +34,22 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="employeeComman/upload/1.jpg" class="user-image" alt="User Image">
+                        <img src="<?php echo 'employeeComman/upload/'. $_SESSION["id"].'.jpg'?>" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">Employee</span>
+                        <span class="hidden-xs"><?php echo $_SESSION["fname"]." ".$_SESSION["lname"] ?></span>
+                        <!-- <button href="../../../admin/index.php" class="btn btn-default btn-flat">Sign out</button> -->
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- The user image in the menu -->
+                        
                         <li class="user-header">
-                            <img src="employeeComman/upload/1.jpg" class="img-circle" alt="User Image">
+                            <img src="<?php echo 'employeeComman/upload/'. $_SESSION["id"].'.jpg'?>" class="img-circle" alt="User Image">
 
                             <p>
                                 Employee
                                 <small></small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
-                      
-                        <!-- Menu Footer-->
+                        
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -61,7 +60,7 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Control Sidebar Toggle Button -->
+               
             </ul>
         </div>
     </nav>

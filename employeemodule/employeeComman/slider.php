@@ -10,10 +10,10 @@
     <section class="sidebar">
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="employeeComman/upload/1.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo 'employeeComman/upload/'. $_SESSION["id"].'.jpg'?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p id="user">Employee</p>
+                <p id="user"><?php echo $_SESSION["fname"]." ".$_SESSION["lname"] ?></p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -41,6 +41,7 @@
             <li><a href="leave_form.php"><i class="fa fa-edit"></i> <span>Leave Form</span></a></li>
 
             <li><a href="update.php"><i class="fa fa-gears"></i> <span>Update</span></a></li>
+            <li><a href="stockmgt.php"><i class="fa fa-gears"></i> <span>Stock Management</span></a></li>
         </ul>
     </section>
 </aside>
